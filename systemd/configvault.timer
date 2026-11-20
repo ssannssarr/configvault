@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily ConfigVault snapshot
+
+[Timer]
+OnCalendar=*-*-* 03:00:00
+Persistent=true
+RandomizedDelaySec=15m
+Unit=configvault.service
+
+[Install]
+WantedBy=timers.target

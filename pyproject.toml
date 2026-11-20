@@ -1,0 +1,30 @@
+[project]
+name = "configvault"
+version = "0.1.0"
+description = "Minimal snapshot-based dotfiles backup for Arch Linux"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "ConfigVault" }]
+dependencies = [
+    "typer>=0.12,<1",
+]
+
+[project.scripts]
+configvault = "configvault.cli:app"
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/configvault"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

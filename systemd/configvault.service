@@ -1,0 +1,10 @@
+[Unit]
+Description=ConfigVault snapshot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/configvault snapshot
+Nice=10
+IOSchedulingClass=idle
